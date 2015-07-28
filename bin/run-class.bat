@@ -8,7 +8,7 @@ popd
 
 echo %BASE_DIR%
 
-rem set CLASSPATH=
+set CLASSPATH=
 
 rem Classpath addition for release
 for %%i in (%BASE_DIR%\*.jar) do (
@@ -40,6 +40,8 @@ echo %CFGDIR%
 
 java -cp "%CLASSPATH%" me.hynd.cmd.Cmd %CFGDIR% %*
 
+rem pause
+
 goto :eof
 :concat
 IF ["%CLASSPATH%"] EQU [""] (
@@ -47,3 +49,4 @@ IF ["%CLASSPATH%"] EQU [""] (
 ) ELSE (
   set CLASSPATH=%CLASSPATH%;"%1"
 )
+
